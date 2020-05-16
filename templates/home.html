@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<style>
+
+</style>
+
+
+
+<div class="gallerycontainer text-center">
+ <h1 class="hat">Tshock</h1>
+
+
+<form action="bcast" Method="POST">
+  <label for="bcast">Broadcast message:</label>
+  <input type="text" id="bcast" name="bcast"> <input type="submit" value="Send"><br><br>
+</form>
+
+<h5><a href="meteor">Spawn Meteor</a></h5>
+
+
+<p>World: {{data['world']}}</p>
+<p>Players: {{data['playercount']}}/{{data['maxplayers']}}</p>
+<p>Online Time: {{data['uptime']}}</p>
+
+
+{% if message is defined %}
+{{message}}
+{% endif %}
+
+
+Active users:<br>
+{% for user in users %}
+{{user['nickname']}} - {{user['group']}} - <a href='/kill/{{user['nickname']}}'>Kill</a> - <a href='/detail{{user['nickname']}}'>Player Details</a><br>
+
+{% endfor %}
+</div>
+{% endblock %}

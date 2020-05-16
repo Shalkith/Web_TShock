@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<link rel="stylesheet" href="static/css/terraria.css">
+<style>
+
+</style>
+
+
+
+<div class="gallerycontainer text-center">
+ <h1 class="hat">Tshock</h1>
+
+
+<form action="bcast" Method="POST">
+  <label for="bcast">Broadcast message:</label>
+  <input type="text" id="bcast" name="bcast"> <input type="submit" value="Send"><br><br>
+</form>
+
+<h5><a href="meteor">Spawn Meteor</a></h5>
+
+<p>Player: {{data['nickname']}}</p>
+{% autoescape false %}
+{% set inventory = data['inventory'].split(', ') %}
+{% for items in inventory %}
+{% set item = items.split(':') %}
+{% if item[0] == '' %}
+<div class="image" style="display:inline;">
+  <img title="{{item[0]}}" src="static/images/icons/empty.png">
+</div>
+{% else %}
+<div class="image" style="display:inline;">
+  <img title="{{item[0]}}" src="static/images/icons/{{item[0]|replace(" ","_")}}.png">
+  {% if item[1] == '1' or item[1] == '0' %}
+  {% else %}
+  <h2>{{item [1]}}</h2>
+  {% endif %}
+</div>
+{% endif %}
+<!-- {{item[0]}} - {{item [1]}}<br> -->
+{% if loop.index == 10 %}
+<br><br>
+{% elif loop.index0 == 49  %}
+<br><br>
+{% elif loop.index % 10 == 0 %}
+<br>
+{% elif loop.index0 == 53  %}
+<br>
+
+
+{% endif %}
+{%endfor%}
+
+<!-- <p>{{data['inventory']|replace(",","<br>")|replace(":0<br>","") }}</p>
+--> {% endautoescape %}
+</div>
+{% endblock %}
