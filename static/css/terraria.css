@@ -1,0 +1,14 @@
+.image {
+   position: relative;
+   width: 100%; /* for IE 6 */
+}
+
+h2 {
+   position: absolute;
+   top: -30px;
+   left: 10px;
+   width: 100%;
+   color: white;
+   font-size: 15px;
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
